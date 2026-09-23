@@ -25,7 +25,7 @@
 }
 
 html {
-  scroll-behavior: auto;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -41,9 +41,14 @@ body {
   line-height: 1.55;
 }
 
-
-section[id] {
-  scroll-margin-top: 96px;
+.page-noise {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.36'/%3E%3C/svg%3E");
+  mix-blend-mode: multiply;
 }
 
 a {
@@ -73,8 +78,9 @@ a {
   justify-content: space-between;
   border: 1px solid rgba(255, 255, 255, 0.7);
   border-radius: 999px;
-  background: rgba(255, 250, 246, 0.94);
+  background: rgba(255, 250, 246, 0.76);
   box-shadow: 0 10px 30px rgba(95, 83, 103, 0.08);
+  backdrop-filter: blur(18px);
 }
 
 .brand {
@@ -120,7 +126,7 @@ a {
 .hero {
   min-height: calc(100vh - 88px);
   display: grid;
-  grid-template-columns: 0.76fr 1.24fr;
+  grid-template-columns: 0.82fr 1.18fr;
   align-items: center;
   gap: 62px;
   padding: 66px 0 90px;

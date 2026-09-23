@@ -3,48 +3,53 @@ if (year) year.textContent = new Date().getFullYear();
 
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-// Reveal sections once as they enter the viewport. IntersectionObserver keeps this
-// off the scroll thread, so the page stays smooth even on integrated graphics.
-const revealItems = document.querySelectorAll(".reveal");
-if (!prefersReducedMotion && "IntersectionObserver" in window) {
-  const revealObserver = new IntersectionObserver(
-    (entries, observer) => {
+if (!prefersReducedMotion) {
+  const observer = new IntersectionObserver(
+    (entries) => {
       entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add("is-visible");
-        observer.unobserve(entry.target);
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
       });
     },
-    { threshold: 0.1, rootMargin: "0px 0px -40px 0px" }
+    { threshold: 0.12 }
   );
 
-  revealItems.forEach((item) => revealObserver.observe(item));
+  document.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
 } else {
-  revealItems.forEach((item) => item.classList.add("is-visible"));
+  document.querySelectorAll(".reveal").forEach((element) => element.classList.add("is-visible"));
 }
 
-// Update the nav without running layout calculations on every scroll event.
 const navLinks = [...document.querySelectorAll(".nav a")];
-const sectionMap = new Map();
+const sections = navLinks
+  .map((link) => document.querySelector(link.getAttribute("href")))
+  .filter(Boolean);
 
-navLinks.forEach((link) => {
-  const section = document.querySelector(link.getAttribute("href"));
-  if (section) sectionMap.set(section, link);
-});
+const setActiveNav = () => {
+  const offset = window.innerHeight * 0.34;
+  let currentId = "";
 
-if ("IntersectionObserver" in window) {
-  const navObserver = new IntersectionObserver(
-    (entries) => {
-      const visible = entries
-        .filter((entry) => entry.isIntersecting)
-        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+  sections.forEach((section) => {
+    const rect = section.getBoundingClientRect();
+    if (rect.top <= offset && rect.bottom > offset) currentId = section.id;
+  });
 
-      if (!visible) return;
-      const activeLink = sectionMap.get(visible.target);
-      navLinks.forEach((link) => link.classList.toggle("is-active", link === activeLink));
-    },
-    { rootMargin: "-28% 0px -58% 0px", threshold: [0, 0.01, 0.2] }
-  );
+  navLinks.forEach((link) => {
+    link.classList.toggle("is-active", link.getAttribute("href") === `#${currentId}`);
+  });
+};
 
-  sectionMap.forEach((_, section) => navObserver.observe(section));
+window.addEventListener("scroll", setActiveNav, { passive: true });
+setActiveNav();
+
+const room = document.querySelector(".hero-room");
+if (room && !prefersReducedMotion) {
+  room.addEventListener("pointermove", (event) => {
+    const rect = room.getBoundingClientRect();
+    const x = ((event.clientX - rect.left) / rect.width - 0.5) * 2;
+    const y = ((event.clientY - rect.top) / rect.height - 0.5) * 2;
+    room.style.setProperty("--mx", `${x}`);
+    room.style.setProperty("--my", `${y}`);
+  });
 }

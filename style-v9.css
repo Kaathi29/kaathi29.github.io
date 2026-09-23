@@ -871,94 +871,54 @@ a {
   display: block;
 }
 
+/* Main About row: compact portrait on the left, copy on the right. */
 .about-main {
-  display: grid;
-  grid-template-columns: 300px minmax(0, 1fr);
-  gap: 64px;
-  align-items: center;
-  max-width: 940px;
+  width: min(100%, 960px);
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: 340px minmax(0, 1fr);
+  gap: 58px;
+  align-items: center;
 }
 
 .about-card {
-  width: 300px;
+  width: 340px;
   padding: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.82);
   border-radius: 28px;
   background: rgba(255, 250, 246, 0.72);
-  border: 1px solid rgba(255,255,255,0.8);
   box-shadow: var(--shadow-soft);
 }
 
 .portrait-placeholder {
   position: relative;
-  width: 280px;
-  height: 330px;
-  display: grid;
-  place-items: end center;
+  width: 320px;
+  height: 360px;
   overflow: hidden;
   border-radius: 21px;
-  background:
-    radial-gradient(circle at 32% 26%, rgba(255,255,255,0.68), transparent 19%),
-    linear-gradient(145deg, #e7d3d8, #d2d2e7 50%, #c8d9ca);
-}
-
-.portrait-placeholder::before,
-.portrait-placeholder::after {
-  content: "";
-  position: absolute;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.25);
-}
-
-.portrait-placeholder::before {
-  width: 190px;
-  height: 190px;
-  left: -75px;
-  bottom: -80px;
-}
-
-.portrait-placeholder::after {
-  width: 120px;
-  height: 120px;
-  right: -48px;
-  top: 14px;
-}
-
-.portrait-illustration {
-  padding: 16px 12px 0;
+  background: #fff;
 }
 
 .portrait-image {
-  position: relative;
-  z-index: 2;
-  width: 245px;
-  height: 305px;
-  object-fit: contain;
-  object-position: center bottom;
-  filter: drop-shadow(0 14px 24px rgba(82, 72, 92, 0.1));
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 18%;
 }
-
-.portrait-spark {
-  position: absolute;
-  z-index: 3;
-  color: rgba(255,255,255,0.86);
-  font-size: 1.35rem;
-}
-
-.spark-a { top: 38px; left: 35px; }
-.spark-b { right: 34px; bottom: 58px; font-size: 0.9rem; }
 
 .about-copy {
-  max-width: 520px;
+  max-width: 540px;
 }
 
 .about-copy h2 {
-  max-width: 520px;
+  max-width: 540px;
+  font-size: clamp(2.6rem, 4.5vw, 4.3rem);
 }
 
 .about-copy > p:not(.kicker) {
-  max-width: 500px;
-  margin: 20px 0 0;
+  max-width: 510px;
+  margin: 21px 0 0;
   color: var(--muted);
   font-size: 1rem;
 }
@@ -967,7 +927,7 @@ a {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-top: 22px;
+  margin-top: 23px;
 }
 
 .mini-facts span {
@@ -979,71 +939,84 @@ a {
   font-weight: 700;
 }
 
-/* The personal section deliberately sits below the main About row. */
+/* Full-width reveal bar below BOTH portrait and copy. */
 .personal-row {
-  max-width: 940px;
-  margin: 22px auto 0;
-  display: flex;
-  justify-content: center;
+  width: min(100%, 960px);
+  margin: 26px auto 0;
 }
 
 .personal-peek {
   appearance: none;
-  border: 1px solid var(--line);
-  padding: 9px 13px 9px 15px;
-  display: inline-flex;
+  width: 100%;
+  min-height: 56px;
+  padding: 0 18px 0 21px;
+  display: flex;
   align-items: center;
-  gap: 10px;
-  border-radius: 999px;
+  justify-content: space-between;
+  gap: 14px;
+  border: 1px solid rgba(63, 58, 67, 0.1);
+  border-radius: 18px;
   background: rgba(255, 250, 246, 0.62);
-  color: var(--muted);
+  color: var(--ink);
   font: inherit;
-  font-size: 0.8rem;
+  font-size: 0.88rem;
   font-weight: 700;
+  text-align: left;
   cursor: pointer;
-  box-shadow: 0 7px 18px rgba(95, 83, 103, 0.05);
+  box-shadow: 0 8px 22px rgba(95, 83, 103, 0.06);
   transition: transform 180ms ease, background 180ms ease, box-shadow 180ms ease;
 }
 
 .personal-peek:hover {
   transform: translateY(-1px);
-  background: rgba(255, 250, 246, 0.88);
-  box-shadow: 0 10px 22px rgba(95, 83, 103, 0.08);
+  background: rgba(255, 250, 246, 0.9);
+  box-shadow: var(--shadow-soft);
 }
 
 .personal-peek-icon {
-  width: 23px;
-  height: 23px;
+  flex: 0 0 auto;
+  width: 28px;
+  height: 28px;
   display: grid;
   place-items: center;
   border-radius: 50%;
-  background: rgba(201, 197, 228, 0.42);
-  font-size: 1rem;
+  background: rgba(201, 197, 228, 0.48);
+  color: var(--ink);
+  font-size: 1.15rem;
   line-height: 1;
   transition: transform 220ms ease, background 220ms ease;
 }
 
 .personal-peek[aria-expanded="true"] .personal-peek-icon {
   transform: rotate(45deg);
-  background: rgba(200, 217, 201, 0.6);
+  background: rgba(200, 217, 201, 0.64);
 }
 
+/* Closed by default. It only occupies space after the button is clicked. */
 .personal-drawer {
+  width: min(100%, 960px);
+  margin: 0 auto;
   display: grid;
   grid-template-rows: 0fr;
-  max-width: 940px;
-  margin: 0 auto;
   opacity: 0;
+  visibility: hidden;
   transition:
     grid-template-rows 340ms cubic-bezier(.2,.7,.2,1),
     opacity 220ms ease,
-    margin-top 340ms cubic-bezier(.2,.7,.2,1);
+    margin-top 340ms cubic-bezier(.2,.7,.2,1),
+    visibility 0s linear 340ms;
 }
 
 .personal-drawer.is-open {
   grid-template-rows: 1fr;
   opacity: 1;
-  margin-top: 18px;
+  visibility: visible;
+  margin-top: 16px;
+  transition:
+    grid-template-rows 340ms cubic-bezier(.2,.7,.2,1),
+    opacity 220ms ease,
+    margin-top 340ms cubic-bezier(.2,.7,.2,1),
+    visibility 0s linear 0s;
 }
 
 .personal-drawer-inner {
@@ -1079,9 +1052,9 @@ a {
 }
 
 .value-card .small-label {
-  margin-bottom: 7px;
   position: relative;
   z-index: 1;
+  margin-bottom: 7px;
 }
 
 .value-card h3 {
@@ -1343,22 +1316,17 @@ a {
   }
 
   .about-main {
-    grid-template-columns: 280px minmax(0, 1fr);
+    grid-template-columns: 300px minmax(0, 1fr);
     gap: 38px;
   }
 
   .about-card {
-    width: 280px;
+    width: 300px;
   }
 
   .portrait-placeholder {
-    width: 260px;
-    height: 315px;
-  }
-
-  .portrait-image {
-    width: 228px;
-    height: 292px;
+    width: 280px;
+    height: 330px;
   }
 
   .work-grid {
@@ -1536,26 +1504,21 @@ a {
   .about-main {
     grid-template-columns: 1fr;
     gap: 28px;
-    justify-items: center;
   }
 
   .about-card {
-    width: 280px;
+    width: 300px;
+    justify-self: center;
   }
 
   .portrait-placeholder {
-    width: 260px;
-    height: 315px;
-  }
-
-  .portrait-image {
-    width: 228px;
-    height: 292px;
+    width: 280px;
+    height: 330px;
   }
 
   .about-copy {
-    max-width: 620px;
     width: 100%;
+    max-width: 620px;
   }
 
   .personal-values {

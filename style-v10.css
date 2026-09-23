@@ -894,17 +894,47 @@ a {
   position: relative;
   width: 320px;
   height: 360px;
+  padding: 18px;
+  display: grid;
+  place-items: center;
   overflow: hidden;
   border-radius: 21px;
-  background: #fff;
+  background:
+    radial-gradient(circle at 18% 18%, rgba(255,255,255,0.72), transparent 24%),
+    linear-gradient(145deg, #ead7df, #d9d7ea 52%, #d6e2d7);
+}
+
+.portrait-placeholder::before {
+  content: "";
+  position: absolute;
+  width: 145px;
+  height: 145px;
+  right: -42px;
+  top: 20px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.22);
+}
+
+.portrait-placeholder::after {
+  content: "✦";
+  position: absolute;
+  left: 22px;
+  top: 18px;
+  color: rgba(255,255,255,0.8);
+  font-size: 1.3rem;
 }
 
 .portrait-image {
+  position: relative;
+  z-index: 1;
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center 18%;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 15px;
+  background: #fff;
+  box-shadow: 0 14px 28px rgba(82, 72, 92, 0.10);
 }
 
 .about-copy {

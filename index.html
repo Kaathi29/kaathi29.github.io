@@ -3,17 +3,257 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>3D Portfolio Test</title>
+  <meta
+    name="description"
+    content="Portfolio of Katharina Bornemann Planells, a Junior Game Designer based in Berlin."
+  />
+  <title>Katharina Bornemann Planells | Game Designer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>Welcome to My 3D Portfolio</h1>
-  <canvas id="three-canvas"></canvas>
+  <header class="site-header">
+    <a class="logo" href="#top" aria-label="Back to top">KB<span>.</span></a>
 
-  <!-- Three.js CDN -->
+    <nav class="nav" aria-label="Main navigation">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#work">Work</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero section-shell">
+      <div class="hero-copy reveal">
+        <p class="eyebrow">Game Designer · Berlin</p>
+        <h1>
+          Hi, I’m <span>Katharina.</span><br />
+          I design games and interactive experiences.
+        </h1>
+        <p class="hero-intro">
+          I’m a Junior Game Designer with experience across game design, production tools,
+          prototyping and visual development. I currently work at SOFTGAMES in Berlin.
+        </p>
+
+        <div class="hero-actions">
+          <a class="button button-primary" href="#work">View my work</a>
+          <a class="button button-secondary" href="#contact">Get in touch</a>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal" aria-label="Interactive 3D torus illustration">
+        <canvas id="three-canvas"></canvas>
+        <div class="canvas-caption">move your cursor</div>
+      </div>
+    </section>
+
+    <section id="about" class="section-shell split-section">
+      <div class="section-heading reveal">
+        <p class="eyebrow">01 · About</p>
+        <h2>Designing with curiosity, structure and play.</h2>
+      </div>
+
+      <div class="section-copy reveal">
+        <p>
+          I studied Game Design at Mediadesign Hochschule and have built professional
+          experience at SOFTGAMES through several roles — from team assistant and intern
+          to working student and, today, Junior Game Designer.
+        </p>
+        <p>
+          My toolkit spans Unreal Engine, Blueprints, Niagara VFX, Unity, C#, Maya,
+          Photoshop and Illustrator, alongside production tools such as Jira and Confluence.
+        </p>
+      </div>
+    </section>
+
+    <section id="experience" class="section-shell">
+      <div class="section-heading reveal">
+        <p class="eyebrow">02 · Experience</p>
+        <h2>From first industry experience to professional game design.</h2>
+      </div>
+
+      <div class="timeline">
+        <article class="timeline-item reveal">
+          <div class="timeline-date">2025 — Present</div>
+          <div>
+            <h3>Junior Game Designer</h3>
+            <p class="company">SOFTGAMES</p>
+            <p>Professional game design role in Berlin.</p>
+          </div>
+        </article>
+
+        <article class="timeline-item reveal">
+          <div class="timeline-date">2024 — 2025</div>
+          <div>
+            <h3>Game Design Working Student</h3>
+            <p class="company">SOFTGAMES</p>
+          </div>
+        </article>
+
+        <article class="timeline-item reveal">
+          <div class="timeline-date">2023 — 2024</div>
+          <div>
+            <h3>Game Design Intern</h3>
+            <p class="company">SOFTGAMES</p>
+          </div>
+        </article>
+
+        <article class="timeline-item reveal">
+          <div class="timeline-date">2022 — 2023</div>
+          <div>
+            <h3>Team Assistant · Minijob</h3>
+            <p class="company">SOFTGAMES</p>
+          </div>
+        </article>
+
+        <article class="timeline-item reveal">
+          <div class="timeline-date">2021</div>
+          <div>
+            <h3>Urban Planning Internship</h3>
+            <p class="company">URBANFIX</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="work" class="section-shell">
+      <div class="section-heading reveal">
+        <p class="eyebrow">03 · Selected Work</p>
+        <h2>This is where the portfolio will become yours.</h2>
+        <p class="section-note">
+          We’ll replace these starter cards with your actual university projects, videos,
+          prototypes and selected professional work as we build the site together.
+        </p>
+      </div>
+
+      <div class="project-grid">
+        <article class="project-card project-card-featured reveal">
+          <div class="project-placeholder">
+            <span>01</span>
+            <div class="placeholder-orbit"></div>
+          </div>
+          <div class="project-card-copy">
+            <p class="project-type">University project</p>
+            <h3>Project case study</h3>
+            <p>
+              Video, screenshots, your role, tools, design challenge and what you learned
+              will go here.
+            </p>
+          </div>
+        </article>
+
+        <article class="project-card reveal">
+          <div class="project-placeholder project-placeholder-alt">
+            <span>02</span>
+            <div class="placeholder-grid"></div>
+          </div>
+          <div class="project-card-copy">
+            <p class="project-type">Professional work</p>
+            <h3>SOFTGAMES</h3>
+            <p>
+              A space for public, non-confidential work you are allowed to show — we’ll
+              decide together what belongs here.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills" class="section-shell skills-section">
+      <div class="section-heading reveal">
+        <p class="eyebrow">04 · Skills</p>
+        <h2>Tools I work with.</h2>
+      </div>
+
+      <div class="skill-groups">
+        <div class="skill-group reveal">
+          <p class="skill-label">Engines & Development</p>
+          <div class="tag-list">
+            <span>Unreal Engine</span>
+            <span>Blueprints</span>
+            <span>Niagara VFX</span>
+            <span>Unity</span>
+            <span>C#</span>
+          </div>
+        </div>
+
+        <div class="skill-group reveal">
+          <p class="skill-label">Art & 3D</p>
+          <div class="tag-list">
+            <span>Maya</span>
+            <span>Photoshop</span>
+            <span>Illustrator</span>
+          </div>
+        </div>
+
+        <div class="skill-group reveal">
+          <p class="skill-label">Production</p>
+          <div class="tag-list">
+            <span>Jira</span>
+            <span>Confluence</span>
+            <span>Project Management</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-shell education-section">
+      <div class="section-heading reveal">
+        <p class="eyebrow">05 · Education</p>
+        <h2>Game Design B.A.</h2>
+      </div>
+
+      <div class="education-card reveal">
+        <div>
+          <p class="education-year">2021 — 2025</p>
+          <h3>Mediadesign Hochschule</h3>
+        </div>
+        <p>Bachelor’s degree in Game Design</p>
+      </div>
+    </section>
+
+    <section id="contact" class="section-shell contact-section">
+      <p class="eyebrow reveal">06 · Contact</p>
+      <div class="contact-layout">
+        <div class="reveal">
+          <h2>Want to build something fun?</h2>
+          <p>
+            I’m based in Berlin. For work, collaborations or just a conversation about games,
+            feel free to reach out.
+          </p>
+        </div>
+
+        <div class="contact-links reveal">
+          <a href="mailto:katharinabornemann@gmail.com">
+            <span>Email</span>
+            katharinabornemann@gmail.com
+          </a>
+          <a
+            href="https://www.linkedin.com/in/katharina-bornemann/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <span>LinkedIn</span>
+            /in/katharina-bornemann
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer section-shell">
+    <p>© <span id="year"></span> Katharina Bornemann Planells</p>
+    <a href="#top">Back to top ↑</a>
+  </footer>
+
   <script src="https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/three@0.158.0/examples/js/controls/OrbitControls.min.js"></script>
   <script src="main.js"></script>
-
 </body>
 </html>

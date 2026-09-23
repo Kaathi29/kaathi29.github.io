@@ -53,3 +53,16 @@ if (room && !prefersReducedMotion) {
     room.style.setProperty("--my", `${y}`);
   });
 }
+
+const personalPeek = document.querySelector(".personal-peek");
+const personalDrawer = document.getElementById("personal-drawer");
+
+if (personalPeek && personalDrawer) {
+  personalPeek.addEventListener("click", () => {
+    const isOpen = personalPeek.getAttribute("aria-expanded") === "true";
+    personalPeek.setAttribute("aria-expanded", String(!isOpen));
+    personalDrawer.setAttribute("aria-hidden", String(isOpen));
+    personalDrawer.classList.toggle("is-open", !isOpen);
+  });
+}
+

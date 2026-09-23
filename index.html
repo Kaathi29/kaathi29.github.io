@@ -149,11 +149,15 @@
 
     <section id="about" class="section-shell section-block about-layout">
       <div class="about-card reveal">
-        <div class="portrait-placeholder">
+        <div class="portrait-placeholder portrait-illustration">
           <span class="portrait-spark spark-a">✦</span>
           <span class="portrait-spark spark-b">✦</span>
-          <div class="portrait-circle">KB</div>
-          <p>portrait / personal visual</p>
+          <img
+            class="portrait-image"
+            src="kathi-avatar.png"
+            alt="Illustrated portrait of Kathi in a pastel cartoon style"
+          />
+          <p>illustrated self portrait</p>
         </div>
       </div>
 
@@ -164,10 +168,57 @@
           I’m a Junior Game Designer based in Berlin, currently at SOFTGAMES. I like building,
           testing and shaping ideas until they feel clear, playful and satisfying.
         </p>
+        <p class="about-soft-note">
+          I also love mixing playful visuals with clean structure — so this little illustrated version of me felt very on-brand.
+        </p>
         <div class="mini-facts">
           <span>Game Design B.A.</span>
           <span>Berlin</span>
           <span>SOFTGAMES</span>
+        </div>
+
+        <div class="personal-peek-wrap">
+          <button
+            class="personal-peek"
+            type="button"
+            aria-expanded="false"
+            aria-controls="personal-drawer"
+          >
+            <span>a little more about me</span>
+            <span class="personal-peek-icon" aria-hidden="true">+</span>
+          </button>
+
+          <div id="personal-drawer" class="personal-drawer" aria-hidden="true">
+            <div class="personal-drawer-inner">
+              <p class="personal-note">
+                Outside of games, I care a lot about how I move through the world —
+                staying active, living consciously and standing up for what matters to me.
+              </p>
+
+              <div class="personal-values">
+                <article class="value-card value-move">
+                  <span class="value-symbol" aria-hidden="true">↗</span>
+                  <p class="small-label">Move</p>
+                  <h3>Sports & health</h3>
+                  <p>Sports are a big part of my life. I value movement, energy and a healthy routine.</p>
+                </article>
+
+                <article class="value-card value-planet">
+                  <span class="value-symbol" aria-hidden="true">◎</span>
+                  <p class="small-label">Live lightly</p>
+                  <h3>Planet first</h3>
+                  <p>I live plant-based and try to make everyday choices that are kinder to the planet.</p>
+                </article>
+
+                <article class="value-card value-animals">
+                  <span class="value-symbol" aria-hidden="true">♡</span>
+                  <p class="small-label">Speak up</p>
+                  <h3>Animal rights</h3>
+                  <p>Animal rights matter deeply to me, and I support causes that protect animals and their wellbeing.</p>
+                </article>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
